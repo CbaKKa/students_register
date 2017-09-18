@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<groups>
+    <group>
+        <id>1 группа</id>
+        <student>
+            <name>first</name>
+            <surname>student</surname>
+            <task>
+                <task>true</task>
+                <task>false</task>
+            </task>
+        </student>
+        <student>
+            <name>second</name>
+            <surname>student</surname>
+            <task>
+                <task>false</task>
+                <task>false</task>
+            </task>
+        </student>
+    </group>
+    <group>
+        <id>2 группа</id>
+        <student>
+            <name>as</name>
+            <surname>as</surname>
+        </student>
+        <student>
+            <name>da</name>
+            <surname>da</surname>
+        </student>
+    </group>
+</groups>
