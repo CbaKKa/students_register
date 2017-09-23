@@ -28,4 +28,18 @@ public class GroupList implements Serializable {
     public void setGroups(final List<Group> groups) {
         this.groups = groups;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (final Group group : getGroups()) {
+            for (final Student student : group.getStudentList()) {
+                stringBuilder.append(group.getId()).append(" | ")
+                        .append(student.toString()).append(System.lineSeparator());
+            }
+        }
+
+        return stringBuilder.toString();
+    }
 }

@@ -55,4 +55,9 @@ public class Student implements Serializable {
     public void setTaskList(final TaskList taskList) {
         this.taskList = taskList;
     }
+
+    @Override
+    public String toString() {
+        return getName() + getSurname() + " " + getTaskList().toString();
+    }
 }

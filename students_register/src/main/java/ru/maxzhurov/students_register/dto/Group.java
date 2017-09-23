@@ -17,8 +17,12 @@ public class Group implements Serializable {
 
     }
 
-    public Group(final List<Student> students, String id) {
+    public Group(final String id, final List<Student> students) {
         this.studentList = students;
+        this.id = id;
+    }
+
+    public Group(String id) {
         this.id = id;
     }
 
@@ -36,5 +40,17 @@ public class Group implements Serializable {
 
     public void setId(final String id) {
         this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Group)
+        {
+            final Group group = (Group) obj;
+
+            return group.getId().equals(getId());
+        } else {
+            return false;
+        }
     }
 }

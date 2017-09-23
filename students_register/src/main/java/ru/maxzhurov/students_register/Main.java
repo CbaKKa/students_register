@@ -22,8 +22,8 @@ public class Main {
         Student thirdStudent = new Student("as", "as");
         Student fourthStudent = new Student("da", "da");
 
-        Group firstGroup = new Group(Arrays.asList(firstStudent, secondStudent), "1 группа");
-        Group secondGroup = new Group(Arrays.asList(thirdStudent, fourthStudent), "2 группа");
+        Group firstGroup = new Group("1 группа", Arrays.asList(firstStudent, secondStudent));
+        Group secondGroup = new Group("2 группа", Arrays.asList(thirdStudent, fourthStudent));
 
         GroupList groupList = new GroupList(Arrays.asList(firstGroup, secondGroup));
 

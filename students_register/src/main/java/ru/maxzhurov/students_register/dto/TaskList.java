@@ -12,20 +12,31 @@ import java.util.List;
 public class TaskList implements Serializable {
 
     @XmlElement(name = XMLTags.TASK)
-    private List<Boolean> taskList;
+    private List<Boolean> tasks;
 
     public TaskList() {
     }
 
-    public TaskList(final List<Boolean> taskList) {
-        this.taskList = taskList;
+    public TaskList(final List<Boolean> tasks) {
+        this.tasks = tasks;
     }
 
-    public List<Boolean> getTaskList() {
-        return taskList;
+    public List<Boolean> getTasks() {
+        return tasks;
     }
 
-    public void setTaskList(final List<Boolean> taskList) {
-        this.taskList = taskList;
+    public void setTasks(final List<Boolean> tasks) {
+        this.tasks = tasks;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder stringBuilder = new StringBuilder();
+
+        for (final boolean task : getTasks()) {
+            stringBuilder.append(task).append(" ");
+        }
+
+        return stringBuilder.toString().trim();
     }
 }
