@@ -17,7 +17,7 @@ public class TaskList implements Serializable {
     public TaskList() {
     }
 
-    public TaskList(List<Boolean> taskList) {
+    public TaskList(final List<Boolean> taskList) {
         this.taskList = taskList;
     }
 
@@ -25,7 +25,7 @@ public class TaskList implements Serializable {
         return taskList;
     }
 
-    public void setTaskList(List<Boolean> taskList) {
+    public void setTaskList(final List<Boolean> taskList) {
         this.taskList = taskList;
     }
 }

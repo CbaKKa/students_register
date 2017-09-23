@@ -21,13 +21,13 @@ public class Student implements Serializable {
 
     }
 
-    public Student(String name, String surname, TaskList taskList) {
+    public Student(final String name, final String surname, final TaskList taskList) {
         this.name = name;
         this.surname = surname;
         this.taskList = taskList;
     }
 
-    public Student(String name, String surname) {
+    public Student(final String name, final String surname) {
         this.name = name;
         this.surname = surname;
     }
@@ -36,7 +36,7 @@ public class Student implements Serializable {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -44,7 +44,7 @@ public class Student implements Serializable {
         return surname;
     }
 
-    public void setSurname(String surname) {
+    public void setSurname(final String surname) {
         this.surname = surname;
     }
 
@@ -52,7 +52,7 @@ public class Student implements Serializable {
         return taskList;
     }
 
-    public void setTaskList(TaskList taskList) {
+    public void setTaskList(final TaskList taskList) {
         this.taskList = taskList;
     }
 }
