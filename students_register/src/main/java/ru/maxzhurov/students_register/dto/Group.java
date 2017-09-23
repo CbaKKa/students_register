@@ -17,7 +17,7 @@ public class Group implements Serializable {
 
     }
 
-    public Group(List<Student> students, String id) {
+    public Group(final List<Student> students, String id) {
         this.studentList = students;
         this.id = id;
     }
@@ -26,7 +26,7 @@ public class Group implements Serializable {
         return studentList;
     }
 
-    public void setStudentList(List<Student> students) {
+    public void setStudentList(final List<Student> students) {
         this.studentList = students;
     }
 
@@ -34,7 +34,7 @@ public class Group implements Serializable {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(final String id) {
         this.id = id;
     }
 }

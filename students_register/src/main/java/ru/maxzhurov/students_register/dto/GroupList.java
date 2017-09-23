@@ -17,7 +17,7 @@ public class GroupList implements Serializable {
     public GroupList() {
     }
 
-    public GroupList(List<Group> groups) {
+    public GroupList(final List<Group> groups) {
         this.groups = groups;
     }
 
@@ -25,7 +25,7 @@ public class GroupList implements Serializable {
         return groups;
     }
 
-    public void setGroups(List<Group> groups) {
+    public void setGroups(final List<Group> groups) {
         this.groups = groups;
     }
 }

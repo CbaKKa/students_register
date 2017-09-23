@@ -17,7 +17,7 @@ public class Task implements Serializable {
 
     }
 
-    public Task(boolean passed) {
+    public Task(final boolean passed) {
         this.passed = passed;
     }
 
@@ -25,7 +25,7 @@ public class Task implements Serializable {
         return passed;
     }
 
-    public void setPassed(boolean passed) {
+    public void setPassed(final boolean passed) {
         this.passed = passed;
     }
 }
