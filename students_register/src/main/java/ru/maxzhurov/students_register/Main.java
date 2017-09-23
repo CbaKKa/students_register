@@ -1,16 +1,11 @@
 package ru.maxzhurov.students_register;
 
 import ru.maxzhurov.students_register.dto.*;
-import ru.maxzhurov.students_register.view.ConsoleView;
+import ru.maxzhurov.students_register.services.JAXBService;
+import ru.maxzhurov.students_register.services.JAXBServiceImpl;
 
-import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.stream.FactoryConfigurationError;
-import java.io.File;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -32,16 +27,17 @@ public class Main {
 
         GroupList groupList = new GroupList(Arrays.asList(firstGroup, secondGroup));
 
+        JAXBService jaxbService = new JAXBServiceImpl();
+
         try {
-            File file = new File("test.xml");
-            JAXBContext jaxbContext = JAXBContext.newInstance(GroupList.class);
-            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+            jaxbService.saveList(groupList, null);
 
-            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            Thread.sleep(500);
 
-            jaxbMarshaller.marshal(groupList, System.out);
-            jaxbMarshaller.marshal(groupList, file);
-        } catch (JAXBException e) {
+            System.out.println("\n------------------\n");
+
+            jaxbService.loadList(null);
+        } catch (JAXBException | InterruptedException e) {
             e.printStackTrace();
         }
     }
