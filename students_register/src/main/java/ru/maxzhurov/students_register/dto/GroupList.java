@@ -33,13 +33,38 @@ public class GroupList implements Serializable {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
 
+        if (getGroups() == null) {
+            return "";
+        }
+
         for (final Group group : getGroups()) {
+            if (group.getStudentList() == null) {
+                stringBuilder.append(group.getId()).append(" | empty").append("\n");
+                continue;
+            } else {
+                if (group.getStudentList().isEmpty()) {
+                    stringBuilder.append(group.getId()).append(" | empty").append("\n");
+
+                    continue;
+                }
+            }
+
             for (final Student student : group.getStudentList()) {
                 stringBuilder.append(group.getId()).append(" | ")
-                        .append(student.toString()).append(System.lineSeparator());
+                        .append(student.toString()).append("\n");
             }
         }
 
         return stringBuilder.toString();
+    }
+
+    public Group getGroupById(final String id) {
+        for (final Group group : getGroups()) {
+            if (group.getId().equals(id)) {
+                return group;
+            }
+        }
+
+        return null;
     }
 }

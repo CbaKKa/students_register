@@ -1,5 +1,6 @@
 package ru.maxzhurov.students_register.services;
 
+import org.jetbrains.annotations.NotNull;
 import ru.maxzhurov.students_register.dto.GroupList;
 
 import javax.xml.bind.JAXBContext;
@@ -7,6 +8,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
+import java.io.FileNotFoundException;
 
 public class JAXBServiceImpl implements JAXBService {
     private final String FILE_NAME = "groups.xml";
@@ -17,22 +19,34 @@ public class JAXBServiceImpl implements JAXBService {
 
         final Marshaller jaxbMarshaller = getMarshaller();
 
-        jaxbMarshaller.marshal(groupList, System.out);
         jaxbMarshaller.marshal(groupList, file);
     }
 
     @Override
-    public GroupList loadList(final String path) throws JAXBException {
+    public GroupList loadList(final String path) throws JAXBException, FileNotFoundException {
+        final File file = getFile(path == null ? FILE_NAME : path);
+
+        Unmarshaller unmarshaller = getUnmarshaller();
+
+        return (GroupList) unmarshaller.unmarshal(file);
+    }
+
+    @Override
+    public void createFile(String path) throws JAXBException {
+        saveList(new GroupList(), path);
+    }
+
+    @Override
+    public void showData(String path) throws JAXBException, FileNotFoundException {
         final File file = getFile(path == null ? FILE_NAME : path);
 
         Unmarshaller unmarshaller = getUnmarshaller();
         GroupList groupList = (GroupList) unmarshaller.unmarshal(file);
 
         System.out.println(groupList);
-
-        return groupList;
     }
 
+    @NotNull
     private File getFile(final String path) {
         return new File(path);
     }

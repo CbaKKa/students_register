@@ -31,6 +31,10 @@ public class TaskList implements Serializable {
 
     @Override
     public String toString() {
+        if (getTasks() == null) {
+            return "";
+        }
+
         final StringBuilder stringBuilder = new StringBuilder();
 
         for (final boolean task : getTasks()) {

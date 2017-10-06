@@ -58,6 +58,21 @@ public class Student implements Serializable {
 
     @Override
     public String toString() {
-        return getName() + getSurname() + " " + getTaskList().toString();
+        if (getTaskList() != null) {
+            return getName() + " " + getSurname() + " " + getTaskList().toString();
+        } else {
+            return getName() + " " + getSurname();
+        }
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+        if (obj instanceof Student) {
+            final Student student = (Student) obj;
+
+            return student.getName().equals(getName()) && student.getSurname().equals(getSurname());
+        } else {
+            return false;
+        }
     }
 }

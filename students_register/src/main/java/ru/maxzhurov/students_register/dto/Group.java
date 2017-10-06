@@ -43,7 +43,7 @@ public class Group implements Serializable {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (obj instanceof Group)
         {
             final Group group = (Group) obj;
